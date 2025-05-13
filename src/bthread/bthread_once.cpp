@@ -19,6 +19,8 @@
 #include "bthread/butex.h"
 
 // @tag AnotherThread
+// @link https://www.google.com
+
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
     _butex->store(UNINITIALIZED, butil::memory_order_relaxed);
