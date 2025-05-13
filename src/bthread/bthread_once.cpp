@@ -18,17 +18,20 @@
 #include "bthread/types.h"
 #include "bthread/butex.h"
 
+// @tag AnotherThread
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
     _butex->store(UNINITIALIZED, butil::memory_order_relaxed);
 }
 
+// @description Here is a sample description of this method.
 bthread_once_t::~bthread_once_t() {
     bthread::butex_destroy(_butex);
 }
 
 namespace bthread {
 
+// @comment Here's a sample comment for this method
 int bthread_once_impl(bthread_once_t* once_control, void (*init_routine)()) {
     butil::atomic<int>* butex = once_control->_butex;
     // We need acquire memory order for this load because if the value
