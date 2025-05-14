@@ -18,6 +18,10 @@
 #include "bthread/types.h"
 #include "bthread/butex.h"
 
+// @description Here is a sample description of the method
+// @tag Important
+// @comment This is needed for the stakeholder requirements
+
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
     _butex->store(UNINITIALIZED, butil::memory_order_relaxed);
