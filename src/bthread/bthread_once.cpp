@@ -21,6 +21,7 @@
 // @description Here is a sample description of the method
 // @tag Important
 // @comment This is needed for the stakeholder requirements
+// @satisfies RRD-SREQ-3, RRD-SREQ-6
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
