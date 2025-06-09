@@ -20,7 +20,6 @@
 
 // @description Here is a sample description of the method
 // @comment This is needed for the stakeholder requirements
-// @satisfies RRD-SREQ-3
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
