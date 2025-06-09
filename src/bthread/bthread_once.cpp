@@ -19,7 +19,6 @@
 #include "bthread/butex.h"
 
 // @description Here is another description of the method
-// @link https://www.google.com
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
