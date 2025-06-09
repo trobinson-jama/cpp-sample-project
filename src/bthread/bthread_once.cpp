@@ -20,6 +20,7 @@
 
 // @description Here is a sample description of the method
 // @comment This is needed for the stakeholder requirements
+// @implements RRD-SREQ-5
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
@@ -32,6 +33,7 @@ bthread_once_t::~bthread_once_t() {
 
 namespace bthread {
 
+// @tag AnotherThread
 int bthread_once_impl(bthread_once_t* once_control, void (*init_routine)()) {
     butil::atomic<int>* butex = once_control->_butex;
     // We need acquire memory order for this load because if the value
