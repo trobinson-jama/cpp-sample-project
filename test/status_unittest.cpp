@@ -32,6 +32,10 @@ protected:
     };
 };
 
+
+// @satisfies RRD-SREQ-3, RRD-SREQ-5
+// @link https://www.google.com
+
 TEST_F(StatusTest, success_status) {
     std::ostringstream oss;
 
