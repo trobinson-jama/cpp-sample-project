@@ -19,6 +19,7 @@
 #include "bthread/butex.h"
 
 // @description Here is another description of the method
+// @satisfies RRD-SREQ-3, RRD-SREQ-5
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
@@ -31,6 +32,7 @@ bthread_once_t::~bthread_once_t() {
 
 namespace bthread {
 
+// @verifies RRD-SREQ-7, RRD-SREQ-4
 int bthread_once_impl(bthread_once_t* once_control, void (*init_routine)()) {
     butil::atomic<int>* butex = once_control->_butex;
     // We need acquire memory order for this load because if the value
