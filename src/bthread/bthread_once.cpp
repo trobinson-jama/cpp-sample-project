@@ -19,6 +19,7 @@
 #include "bthread/butex.h"
 
 // @description Here is another description of the method
+// @verifies RRD-SREQ-3, RRD-SREQ-6
 
 bthread_once_t::bthread_once_t()
     : _butex(bthread::butex_create_checked<butil::atomic<int>>())  {
@@ -75,6 +76,8 @@ int bthread_once_impl(bthread_once_t* once_control, void (*init_routine)()) {
 } // namespace bthread
 
 __BEGIN_DECLS
+
+// @satisfies RRD-SREQ-7, RRD-SREQ-4
 
 int bthread_once(bthread_once_t* once_control, void (*init_routine)()) {
     return bthread::bthread_once_impl(once_control, init_routine);
